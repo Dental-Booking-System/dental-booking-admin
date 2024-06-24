@@ -63,9 +63,10 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
+
   }
 }
- 
+
 @layer base {
   * {
     @apply border-border;
@@ -73,4 +74,18 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.fc-button {
+  background-color: #ffffff !important;
+  color: black !important;
+  font-family: "Helvetica Neue", serif !important;
+}
+
+.fc-button:focus {
+  box-shadow: 0 0 0 0.1rem rgba(44, 62, 80, 0.25) !important;
+}
+
+.fc-day-grid-event > .fc-content {
+  white-space: normal !important;
 }

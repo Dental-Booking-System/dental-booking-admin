@@ -9,15 +9,14 @@ import {
   Table
 } from '@/components/ui/table';
 import { Button } from '@/components/ui/button';
-import { SelectUser } from '@/lib/db';
-import { deleteUser } from './actions';
+import { deleteUser } from '../actions';
 import { useRouter } from 'next/navigation';
 
 export function UsersTable({
   users,
   offset
 }: {
-  users: SelectUser[];
+  users: any;
   offset: number | null;
 }) {
   const router = useRouter();
@@ -39,7 +38,7 @@ export function UsersTable({
             </TableRow>
           </TableHeader>
           <TableBody>
-            {users.map((user) => (
+            {users.map((user: any) => (
               <UserRow key={user.id} user={user} />
             ))}
           </TableBody>
@@ -58,7 +57,7 @@ export function UsersTable({
   );
 }
 
-function UserRow({ user }: { user: SelectUser }) {
+function UserRow({ user }: { user: any }) {
   const userId = user.id;
   const deleteUserWithId = deleteUser.bind(null, userId);
 

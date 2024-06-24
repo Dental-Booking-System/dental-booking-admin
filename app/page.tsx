@@ -1,25 +1,49 @@
-import { getUsers } from '@/lib/db';
-import { UsersTable } from './users-table';
-import { Search } from './search';
+'use client';
 
-export default async function IndexPage({
-  searchParams
-}: {
-  searchParams: { q: string; offset: string };
-}) {
-  const search = searchParams.q ?? '';
-  const offset = searchParams.offset ?? 0;
-  // const { users, newOffset } = await getUsers(search, Number(offset));
+import Calendar from '@/components/ui/calendar';
+import useSSE from '@/components/hooks/useSSE';
+import { SetStateAction, useEffect, useState } from 'react';
+import { set } from 'zod';
+
+export default function IndexPage() {
+  const [event, setEvent] = useState([]);
+
+
+  useEffect(() => {
+    const eventSource = new EventSource('http://localhost:8080/api/appointments/stream');
+
+    eventSource.onmessage = (event) => {
+      const newEvent = JSON.parse(event.data);
+      // @ts-ignore
+      setEvent((prev) => [...prev, newEvent]);
+    };
+    eventSource.onerror = (error) => {
+      console.error('EventSource failed:', error);
+      eventSource.close();
+    };
+
+    return () => {
+      eventSource.close();
+    };
+  }, []);
 
   return (
-    <main className="flex flex-1 flex-col p-4 md:p-6">
-      <div className="flex items-center mb-8">
-        <h1 className="font-semibold text-lg md:text-2xl">Users</h1>
-      </div>
-      <div className="w-full mb-4">
-        <Search value={searchParams.q} />
-      </div>
-      <UsersTable users={null} offset={null} />
+    <main className="flex-1 p-2 md:p-6">
+      <Calendar
+        events={function(info: any, successCallback: any, failureCallback: any) {
+          const start = info.start.toISOString();
+          const end = info.end.toISOString();
+          fetch(`http://localhost:8080/api/appointments?start=${start}&end=${end}`).then(res => {
+            res.json().then(events => {
+              let eventList = Array.prototype.slice.call(events)
+              successCallback(eventList);
+            })
+          }).catch(err => {
+            failureCallback(err);
+          })
+        }}
+      />
+
     </main>
   );
 }

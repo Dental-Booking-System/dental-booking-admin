@@ -11,7 +11,17 @@ const nextConfig = {
         hostname: 'avatar.vercel.sh'
       }
     ]
-  }
+  },
+  experimental: {
+    turbo: {
+      rules: {
+        '*.svg': {
+          loaders: ['@svgr/webpack'],
+          as: '*.js',
+        },
+      },
+    },
+  },
 };
 
 module.exports = nextConfig;

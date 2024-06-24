@@ -5,7 +5,7 @@ import { SearchIcon, Spinner } from '@/components/icons';
 import { useRouter } from 'next/navigation';
 import { useTransition, useEffect, useRef, useState } from 'react';
 
-export function Search(props: { value?: string }) {
+export default function Search(props: { value?: string }) {
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
   const [value, setValue] = useState(props.value);
@@ -25,7 +25,7 @@ export function Search(props: { value?: string }) {
     startTransition(() => {
       // All navigations are transitions automatically
       // But wrapping this allow us to observe the pending state
-      router.replace(`/?${params.toString()}`);
+      router.replace(`/patients/?${params.toString()}`);
     });
   }, [router, value]);
 
