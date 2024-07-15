@@ -89,3 +89,21 @@
 .fc-day-grid-event > .fc-content {
   white-space: normal !important;
 }
+
+.fc-event-title {
+  margin: 1px !important;
+  padding: 1px !important;
+  white-space: normal !important;
+}
+
+.fc-event {
+  font-size: .7em !important;
+}
+
+.fc-h-event .fc-event-main-frame {
+  display: block !important;
+}
+
+.tippy-popper {
+  z-index: 9999;
+}
