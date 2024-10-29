@@ -1,15 +1,15 @@
-# Dental Booking Admin - Next.js
+# 👤 Dental Booking Admin - Next.js
 
 This Next.js application is to provide clinic administrators with tools to manage patient records, appointments, and oversee clinic operations via a user-friendly web interface. This application integrates with the mobile app and the Spring Boot backend, creating a cohesive experience for both patients and administrators.
 
-## Features
+## ✨ Features
 
 - **User Authentication**: Secure login using Google API and Firebase.
 - **Patient Records Management**: View, add, edit, and delete patient records.
 - **Appointment Scheduling**: Stream appointments using a calendar interface, and manage upcoming appointments, including rescheduling and cancellations.
 - **Clinic Operations Overview**: Monitor clinic operations and generate reports as needed.
 
-## Installation
+## 🚀 Getting Started
 
 1. Clone the repository:
 
