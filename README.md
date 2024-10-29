@@ -2,6 +2,8 @@
 
 This Next.js application is to provide clinic administrators with tools to manage patient records, appointments, and oversee clinic operations via a user-friendly web interface. This application integrates with the mobile app and the Spring Boot backend, creating a cohesive experience for both patients and administrators.
 
+For more information, visit the organization page: [Dental Booking System](https://github.com/Dental-Booking-System).
+
 ## ✨ Features
 
 - **User Authentication**: Secure login using Google API and Firebase.
