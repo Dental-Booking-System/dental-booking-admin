@@ -1,57 +1,42 @@
-<div align="center"><strong>Next.js 14 Admin Dashboard Template</strong></div>
-<div align="center">Built with the Next.js App Router</div>
-<br />
-<div align="center">
-<a href="https://next-admin-dash.vercel.app/">Demo</a>
-<span> · </span>
-<a href="https://vercel.com/templates/next.js/admin-dashboard-tailwind-postgres-react-nextjs">Clone & Deploy</a>
-<span>
-</div>
+# Dental Booking Admin - Next.js
 
-## Overview
+This Next.js application is to provide clinic administrators with tools to manage patient records, appointments, and oversee clinic operations via a user-friendly web interface. This application integrates with the mobile app and the Spring Boot backend, creating a cohesive experience for both patients and administrators.
 
-This is a starter template using the following stack:
+## Features
 
-- Framework - [Next.js 14](https://nextjs.org/)
-- Language - [TypeScript](https://www.typescriptlang.org)
-- Auth - [NextAuth.js](https://next-auth.js.org)
-- Database - [Postgres](https://vercel.com/postgres)
-- Deployment - [Vercel](https://vercel.com/docs/concepts/next.js/overview)
-- Styling - [Tailwind CSS](https://tailwindcss.com)
-- Components - [Shadcn UI](https://ui.shadcn.com/)
-- Analytics - [Vercel Analytics](https://vercel.com/analytics)
-- Formatting - [Prettier](https://prettier.io)
+- **User Authentication**: Secure login using Google API and Firebase.
+- **Patient Records Management**: View, add, edit, and delete patient records.
+- **Appointment Scheduling**: Stream appointments using a calendar interface, and manage upcoming appointments, including rescheduling and cancellations.
+- **Clinic Operations Overview**: Monitor clinic operations and generate reports as needed.
 
-This template uses the new Next.js App Router. This includes support for enhanced layouts, colocation of components, tests, and styles, component-level data fetching, and more.
+## Installation
 
-## Getting Started
+1. Clone the repository:
 
-During the deployment, Vercel will prompt you to create a new Postgres database. This will add the necessary environment variables to your project.
+   ```bash
+   git clone https://github.com/dental-booking-admin.git
+   cd dental-booking-admin
+   ```
+2. Install packages
 
-Inside the Vercel Postgres dashboard, create a table based on the schema defined in this repository.
+  ```bash
+   npm install 
+   ```
+3. Configure `.env.local`
 
-```
-CREATE TABLE users (
-  id SERIAL PRIMARY KEY,
-  email VARCHAR(255) NOT NULL,
-  name VARCHAR(255),
-  username VARCHAR(255)
-);
-```
+   ```bash
+   NEXT_PUBLIC_API_URL=http://localhost:8080/
+   ```
+4. Run the application
+   ```bash
+   npm run dev
+   ```
 
-Insert a row for testing:
+## 🌐 Backend Server
 
-```
-INSERT INTO users (id, email, name, username) VALUES (1, 'me@site.com', 'Me', 'username');
-```
+This app communicates with a **Spring Boot backend** for authentication, booking management, and MySQL data storage. [Visit Backend Repository](https://github.com/Dental-Booking-System/dental-booking-server).
 
-Copy the `.env.example` file to `.env` and update the values.
+## 🧑‍💻 Contributors
 
-Finally, run the following commands to start the development server:
-
-```
-pnpm install
-pnpm dev
-```
-
-You should now be able to access the application at http://localhost:3000.
+- **Tony Vu** – [LinkedIn](https://linkedin.com/in/duyquocvu) | [GitHub](https://github.com/quocduyvu6262)
+   
